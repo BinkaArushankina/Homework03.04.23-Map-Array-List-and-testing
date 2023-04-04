@@ -35,41 +35,47 @@ public class Main {
     }
 
     public Map<String,String> map(Map <String,String> map){
-
-        for(int i =0; i< map.size(); i++){
             if(map.containsKey("a") && map.containsKey("b")) {
                 String key = "a" + "b";
                 String value = map.get("a") + (map.get("b"));
                 map.put(key, value);
-            } else if (map.containsKey("a")){
-                    return map;
-            } else if( map.containsKey("b")){
-                    return map;
             }
-        }
         return map;
     }
 
     public Map<String,Boolean> wordMultiple(String[] strings){
         Map<String,Boolean>map = new HashMap<>();
-
-        for(int i=0; i<strings.length; i++){
-            if(map.containsKey(strings[i]) ) {
-                map.put(strings[i], true);
-            }else {
-                map.put(strings[i], false);
+        for (String string : strings) {
+            if (map.containsKey(string)) {
+                map.put(string, true);
+            } else {
+                map.put(string, false);
             }
         }
         return map;
     }
 
-    public int nameToNumberOccurence(List list, String name){
-        int counter=0;
-        for (int i=0; i< list.size(); i++){
-            if(list.get(i).equals(name)){
-                counter++;
-            }
+    public int nameToNumberOccurence(List<String> list, String name){
+        //int counter=0;
+        //for (Object o : list) {
+        //    if (o.equals(name)) {
+        //        counter++;
+        //    }
+        //}
+        //return counter;
+
+
+        //2 Variant
+
+        Map<String,Integer>result = new HashMap<>();
+        for(String s: list){
+        if(result.containsKey(s)){
+            result.put(s,result.get(s)+1);  //  key (s),  i to schto w result.get(s) usche bilo uwelitschiwaem na 1
+        }else{
+            result.put(s,1);                //  key (s), i 1 bolsche on ne wstretschaetsa
         }
-        return counter;
+        }
+        return result.getOrDefault(name,0);
+
     }
 }
