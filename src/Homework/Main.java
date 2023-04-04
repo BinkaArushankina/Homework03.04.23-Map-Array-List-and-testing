@@ -75,7 +75,7 @@ public class Main {
             result.put(s,1);                //  key (s), i 1 bolsche on ne wstretschaetsa
         }
         }
-        return result.getOrDefault(name,0);
+        return result.getOrDefault(name,0 );
 
     }
 }
